@@ -2,6 +2,10 @@ package day2;
 
 import java.util.Scanner;
 
+/**
+ * @author chaudharimehul
+ *
+ */
 public class Arithmatic {
 
     public static void main(String[] args) {

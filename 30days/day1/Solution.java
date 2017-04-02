@@ -2,6 +2,10 @@ package day1;
 
 import java.util.Scanner;
 
+/**
+ * @author chaudharimehul
+ *
+ */
 public class Solution {
 	
     public static void main(String[] args) {
