@@ -1,10 +1,78 @@
-package day3;
+package day23;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+class Node{
+	Node left,right;
+	int data;
+	Node(int data){
+		this.data=data;
+		left=right=null;
+	}
+}
 /**
  * @author: chaudharimehul
- * @date:	Apr 2, 2017
+ * @date:	Apr 5, 2017
  * 
- */
-public class Solution {
+ * https://www.hackerrank.com/challenges/30-binary-trees
+ * Sample Input
 
+6
+3
+5
+4
+7
+2
+1
+Sample Output
+
+3 2 5 1 4 7 
+ */
+class Solution{
+
+	static void levelOrder(Node root){
+		Queue<Node> queueForTree = new LinkedList<Node>();
+		//Write your code here
+
+		if(root == null) {return;}
+		queueForTree.add(root);
+		while(!queueForTree.isEmpty()){
+			Node curr = queueForTree.remove();
+			System.out.print( curr.data + " ");
+			if(curr.left != null){
+				queueForTree.add(curr.left);
+			}
+			if(curr.right != null){
+				queueForTree.add(curr.right);
+			}
+		}
+	}
+	public static Node insert(Node root,int data){
+		if(root==null){
+			return new Node(data);
+		}
+		else{
+			Node cur;
+			if(data<=root.data){
+				cur=insert(root.left,data);
+				root.left=cur;
+			}
+			else{
+				cur=insert(root.right,data);
+				root.right=cur;
+			}
+			return root;
+		}
+	}
+	public static void main(String args[]){
+		Scanner sc=new Scanner(System.in);
+		int T=sc.nextInt();
+		Node root=null;
+		while(T-->0){
+			int data=sc.nextInt();
+			root=insert(root,data);
+		}
+		levelOrder(root);
+	}	
 }
