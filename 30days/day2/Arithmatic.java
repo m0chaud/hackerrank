@@ -4,7 +4,14 @@ import java.util.Scanner;
 
 /**
  * @author chaudharimehul
- *
+ *Sample Input
+
+12.00
+20
+8
+Sample Output
+
+The total meal cost is 15 dollars.
  */
 public class Arithmatic {
 
